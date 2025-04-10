@@ -2,6 +2,8 @@
 
 A simple AI-powered chatbot that helps simulate the screening process for candidates applying for technical roles. Built using **Streamlit** for the frontend and **LLaMA2 (local model via Ollama)** for generating domain-specific technical interview questions.
 
+**Note**: Due to the use of a local LLaMA2 model via Ollama for inference, this application is currently intended to be run locally. 
+
 ---
 
 ## Features
