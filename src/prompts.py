@@ -8,7 +8,7 @@ questions = [
     "Tell me about your tech stack — programming languages, frameworks, tools, etc.",
 ]
 
-field_keys = ["name", "email", "phone", "experience", "position", "location", "tech_stack"]
+field_keys = ["full_name", "email", "phone", "years_of_experience", "desired_position", "location", "tech_stack"]
 
 exit_keywords = ["exit", "quit", "bye", "goodbye", "stop", "thank you", "thanks"]
 
