@@ -40,14 +40,17 @@ Note: Data storage, export, and privacy compliance (e.g., GDPR) can be implement
 
 ---
 
-🚀 Running the App
+**Running the App**
 
 1.Clone the repository:
 git clone https://github.com/qubitsculptor/hiring-assistant-bot.git
+
 2.Start your LLaMA2 model locally using Ollama:
 ollama run llama2
+
 3.Install dependencies (if needed):
 pip install streamlit requests
+
 4.Run the app:
 streamlit run app.py
 
