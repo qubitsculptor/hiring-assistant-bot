@@ -23,7 +23,7 @@ A simple AI-powered chatbot that helps simulate the screening process for candid
 
 ---
 
-**How It Works**
+##  How It Works
 
 The user is welcomed and asked to say "hi" to start.
 The chatbot collects candidate information (like name, email, experience, etc.).
@@ -33,14 +33,14 @@ At the end, a polite closing message is shown.
 
 ---
 
-**🔒 Data Privacy & Compliance**
+##  🔒 Data Privacy & Compliance
 
 This demo does not store or export any candidate data. All interactions are handled within the user session only.
 Note: Data storage, export, and privacy compliance (e.g., GDPR) can be implemented if required, using anonymized or simulated data along with secure handling practices.
 
 ---
 
-**Running the App**
+##  Running the App
 
 1.Clone the repository:
 git clone https://github.com/qubitsculptor/hiring-assistant-bot.git
@@ -56,7 +56,7 @@ streamlit run app.py
 
 ---
 
-**Prompt Logic**
+##  Prompt Logic
 
 Technical questions are generated using the following prompt:
 Based strictly on the tech stack below, generate 5 concise technical interview questions.
@@ -67,7 +67,7 @@ This ensures relevant, clear, and focused questions.
 
 ---
 
-**⚠️ Note:**
+##  ⚠️ Note
 
 This project is for demonstration purposes only.
 The app can be extended to support persistent storage, admin review dashboards, and analytics in future versions.
