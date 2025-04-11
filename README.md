@@ -88,7 +88,7 @@ ___
 ## 📸 Screenshots
 
 ### 1. Welcome Screen
-![Welcome Screen](screenshots/Welcome.jpeg)
+![Welcome Screen](screenshots/welcome.jpeg)
 
 ### 2. Technical Questions
 ![Technical Questions](screenshots/Questions.jpeg)
