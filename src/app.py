@@ -1,4 +1,6 @@
 import streamlit as st
+import hashlib
+import csv
 from chatbot import get_technical_questions
 from utils import check_exit, display_message
 from prompts import questions, field_keys, exit_keywords
@@ -8,6 +10,24 @@ st.set_page_config(page_title="Hiring Assistant Chatbot")
 st.title("🤖 TalentScout Hiring Assistant")
 st.markdown("Welcome! I'll help screen candidates based on their info and tech stack.")
 st.markdown("---")
+
+# --------------------------- DATA STORAGE FUNCTIONS ---------------------------
+
+# Function to hash sensitive information (like name and email)
+def hash_sensitive_data(data):
+    return hashlib.sha256(data.encode('utf-8')).hexdigest()
+
+# Function to save the data to CSV
+def save_to_csv(data):
+    file_name = "candidates_data.csv"
+    fieldnames = ["full_name", "email", "phone", "years_of_experience", "tech_stack", "desired_position", "location", "tech_answers"]
+
+    # Write data to the CSV file
+    with open(file_name, mode="a", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        if file.tell() == 0:  # If file is empty, write the header
+            writer.writeheader()
+        writer.writerow(data)
 
 # --------------------------- SESSION INIT ---------------------------
 for key, default in {
@@ -47,10 +67,13 @@ for message in st.session_state.messages:
 
 # --------------------------- FIRST BOT MESSAGE ---------------------------
 if st.session_state.step == -1 and not st.session_state.conversation_started:
-    display_message("assistant", "Hey there! 👋 I’m your hiring assistant.\n\nSay hi to begin!")
+    display_message(
+        "assistant", 
+        "Hey there! 👋 I’m your hiring assistant.\n\nSay hi to begin!\n\nPlease note: We'll be using anonymized data for this demonstration. "
+        "Please do not enter any real personal information. Use simulated or anonymized data only."
+    )
     st.session_state.step = 0
     # st.stop()  ❌ REMOVE THIS LINE COMPLETELY
-
 
 # --------------------------- USER INPUT FIELD ---------------------------
 user_input = st.chat_input("Say hi to begin...")
@@ -114,6 +137,18 @@ if user_input:
         if idx < len(st.session_state.tech_questions):
             display_message("assistant", st.session_state.tech_questions[idx])
         else:
+            # Anonymizing sensitive data before saving
+            anonymized_data = {
+                "full_name": hash_sensitive_data(st.session_state.user_inputs["full_name"]),
+                "email": hash_sensitive_data(st.session_state.user_inputs["email"]),
+                "phone": "0000000000",  # Keep this as placeholder
+                "years_of_experience": st.session_state.user_inputs.get("years_of_experience", ""),
+                "tech_stack": st.session_state.user_inputs.get("tech_stack", ""),
+                "desired_position": st.session_state.user_inputs.get("desired_position", ""),
+                "location": st.session_state.user_inputs.get("location", ""),
+                "tech_answers": st.session_state.tech_answers,
+            }
+            save_to_csv(anonymized_data)
             display_message("assistant", "✅ Thanks for your answers! We'll review everything and reach out soon. All the best! 🍀")
             print("CANDIDATE INFO:", st.session_state.user_inputs)
             for q, a in zip(st.session_state.tech_questions, st.session_state.tech_answers):
@@ -121,6 +156,7 @@ if user_input:
 
 st.markdown("---")
 st.caption("Powered by LLaMA | TalentScout AI Assistant")
+
 
 
 
