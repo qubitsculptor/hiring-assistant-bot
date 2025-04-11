@@ -82,7 +82,17 @@ This ensures relevant, clear, and focused questions.
 ##  ⚠️ Note
 
 This project is for demonstration purposes only.
-The app can be extended to support persistent storage, admin review dashboards, and analytics in future versions.
+
+___
+
+## 📸 Screenshots
+
+### 1. Welcome Screen
+![Welcome Screen](screenshots/welcome.jpeg)
+
+### 2. Technical Questions
+![Technical Questions](screenshots/questions.jpeg)
+
 
 
 
