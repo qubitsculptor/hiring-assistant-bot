@@ -35,10 +35,15 @@ At the end, a polite closing message is shown.
 
 ---
 
-##  🔒 Data Privacy & Compliance
+🔒 Data Privacy & Compliance
+This version now includes optional data storage for candidate information. All sensitive fields such as full name and email are hashed using SHA-256 before saving, ensuring anonymity. The data is stored locally in a CSV file (candidates_data.csv) for demo purposes only.
+✅ Name and email are hashed for privacy.
+✅ Phone number is masked.
+✅ Technical answers and other inputs are saved in a structured CSV format.
+⚠️ No real personal data should be entered — please use simulated or anonymized data.
+📦 No external storage or API is used — all data is stored locally and securely.
 
-This demo does not store or export any candidate data. All interactions are handled within the user session only.
-Note: Data storage, export, and privacy compliance (e.g., GDPR) can be implemented if required, using anonymized or simulated data along with secure handling practices.
+For production-level usage, compliance with data privacy laws (e.g., GDPR) should be ensured, including encryption, user consent, and secure storage mechanisms.
 
 ---
 
