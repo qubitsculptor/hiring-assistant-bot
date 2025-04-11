@@ -35,7 +35,8 @@ At the end, a polite closing message is shown.
 
 ---
 
-🔒 Data Privacy & Compliance
+##  🔒 Data Privacy & Compliance
+
 This version now includes optional data storage for candidate information. All sensitive fields such as full name and email are hashed using SHA-256 before saving, ensuring anonymity. The data is stored locally in a CSV file (candidates_data.csv) for demo purposes only.
 ✅ Name and email are hashed for privacy.
 
